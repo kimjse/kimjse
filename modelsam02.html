@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src ="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <title>라디오폼</title>
+        </head>
+        <body>
+            <div id="app">
+                <h3>라디오 버튼</h3>
+                <label><input type="radio" value="red" v-model="picked">적</label><br>
+                <label><input type="radio" value="green" v-model="picked">녹</label><br>
+                <label><input type="radio" value="blue" v-model="picked">청</label><p>
+                    {{ picked }} 이 선택됨
+                <hr>
+                <h3>이미지 출력</h3>
+                <label><input type="radio" value="face1.png" v-model="fileName">face1</label><br>
+                <label><input type="radio" value="face2.png" v-model="fileName">face2</label><br> <p>
+                {{ fileName }} 선택<p>
+                    <img v-bind:src="fileName"></img>
+                <hr>
+                <h3>셀렉트</h3>
+                <select v-model="myColor">
+                    <option disabled value="">색을 선택해 주세요</option>
+                    <option>red</option>
+                    <option>green</option>
+                    <option>blue</option>
+                    <option>orange</option>
+                    <option>brown</option>
+                    </select>
+                    <p v-bind:style="{color: myColor}">선택한 색상은 {{ myColor }} 입니다. </p>
+            </div>
+            <script>
+                new Vue({
+                    el: '#app',
+                    data: {
+                    picked: '',
+                    fileName: '',
+                    myColor: []
+                }
+            })
+            </script>
+        </body>
+        </html>

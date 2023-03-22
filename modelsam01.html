@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src ="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <title>폼 연결</title>
+        </head>
+        <body>
+            <div id="app">
+                <h2>입력폼과 데이터 연결하기</h2>
+                <input v-model.lazy = "myName" placeholder="이름을 입력하세요">
+                <p> 나의 이름은 {{myName}} 입니다.</p>
+                <hr>
+                <textarea v-model="myText" cols="30" rows="10"></textarea>
+                <p>내가 쓴 문장은 {{myText}} 입니다</p>
+                <p>문자의 수는 {{myText.length}}자 입니다</p>
+                <hr>
+                <h3>체크 박스 연결</h3>
+                <input type="checkbox" v-model="myCheck">
+                체크박스 상태는 {{myCheck}} 
+                <hr>
+                <h3>복수 체크박스</h3>
+                <label><input type="checkbox" value="red" v-model="myChecks">적</label><br>
+                <label><input type="checkbox" value="green" v-model="myChecks">녹<label><br>
+                <label><input type="checkbox" value="blue" v-model="myChecks">청</label><br>
+                선택한 색은 {{ myChecks }}
+                <hr>
+                <h3>동의</h3>
+                <label><input type="checkbox" v-model="myAgree" > 동의합니다.</label>
+                <button v-bind:disabled="myAgree==false">송신</button>
+
+            </div>
+            <script>
+                new Vue({
+                    el: '#app',
+                    data:{
+                        myName : '',
+                        myText : '게임하고 싶다ㅏㅏ.',
+                        myCheck : false,
+                        myChecks : [],
+                        myAgree : false
+                    }
+                })
+            </script>
+        </body>

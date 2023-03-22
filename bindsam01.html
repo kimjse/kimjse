@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src ="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <title>속성 연결</title>
+    </head>
+    <body>
+        <h2>속성 관련 예제</h2>
+        <div id="app">
+            <img src="face1.png" alt="가상현실"><br>
+            직접 태그로 이미지 연결<br>
+            <img v-bind:src="myImg" ><br>
+            v-bind로 이미지 연결><br>
+            <img :src="myImg" ><br>
+            v-bind 생략해서 이미지 연결
+            <hr>
+            <h3>링크</h3>
+            <a href="https://www.naver.com">태그로 네이버 가기</a><br>
+            <a v-bind:href="myUrl">v-bind로 네이버 가기1</a><br>
+            <a :href="myUrl">v-bind로 네이버 가기2</a>
+            <hr>
+            <h3>우측정렬</h3>
+            <p align="right">우측정렬</p>
+            <p v-bind:align="myAlign">우측정렬을 v-bind 로지정</p>    
+        </div>
+        <script>
+            new Vue({
+                el:'#app',
+                data:{
+                    myImg : 'face1.png',
+                    myUrl : 'https://www.naver.com',
+                    myAlignCenter : 'center',
+                    myAlign: 'right'
+                }
+            })
+        </script>
+    </body>
+</html>

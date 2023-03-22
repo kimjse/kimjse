@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src ="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <title>인라인과 클래스 속성</title>
+        </head>
+        <body>
+            <style>
+                .strike-through{
+                    text-decoration: line-through;
+                    color: chocolate;
+                }
+                .dark{
+                    background-color: darkcyan;
+                }
+            </style>
+            <div id="app">
+                <h3>인라인 스타일 지정</h3>
+                <p style="color: crimson;">문자 색 직접 지정</p>
+                <p v-bind:style = "{color:myColor}">v-bind로 글자색 지정</p>
+                <hr>
+                <p style="font-size: 150%;">글자 크기 지정</p>
+                <p v-bind:style = "{fontSize:mySize}">v-bind로 글자 크기 지정</p>
+                <hr>
+                <p style="background-color: aqua;"> 배경색</p>
+                <p v-bind:style = "{backgroundColor : myBackColor}">v-bind 배경</p>
+                <hr>
+                <h3>클래스 지정</h3>
+                <p class="strike-through"> 직접 클래스 지정</p>
+                <p v-bind:class="myClass">v-bind로 클래스 지정</p>
+                <p v-bind:class="[myClass,darkClass]">복수로 지정하기</p>
+                <p v-bind:class="{'strike-through' :isON}">데이터로 클래스 ON/OFF</p>
+            </div>
+            <script>
+                new Vue({
+                    el :'#app',
+                    data : {
+                        myColor :'#B54242',
+                        mySize : '200%',
+                        myBackColor : '#E5CCFF',
+                        myClass : 'strike-through',
+                        darkClass : 'dark',
+                        isON : true
+                    }
+                })
+            </script>
+        </body>
+        </html>
+        
