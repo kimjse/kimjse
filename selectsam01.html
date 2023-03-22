@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src ="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <title>수식어</title>
+    </head>
+        <body>
+            <div id="app">
+                <h3>다쓴후 입력</h3>
+                <input v-model.lazy="myText">
+                <p>입력후 표시 「{{ myText }}」</p>
+                <hr>
+                <h3>입력 자동 수식</h3>
+                <input v-model.number="myNumber1" type="number">
+                <p>100을 더해서 표시「{{ 100 + myNumber1 }}」</p>
+                <hr>
+                <h3>입력 자동수식 안함</h3>
+                <input v-model="myNumber2" type="number">
+                <p>100을 더해서 표시「{{ 100 + myNumber2 }}」</p>
+                <hr>
+                <h3>트림</h3>
+                <input v-model.trim="myText1">
+                <p>앞뒤 공백을 제거 「{{ myText1 }}」</p>
+                <hr>
+                <h3>공백제거X</h3>
+                <input v-model="myText2">
+                <p>앞뒤 공백을 제거 「{{ myText2 }}」</p>
+            </div>
+            <script>
+                new Vue({
+                    el: '#app',
+                    data: {
+                    myText:'',
+                    myNumber1 : 0,
+                    myNumber2 : 0,
+                    myText1: '',
+                    myText2: ''
+                    }
+                })
+            </script>
+            </body>
+            </html>
