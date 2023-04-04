@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src ="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <title>소트</title>
+    </head>
+    <body>
+    <h2>버튼을 클릭하면 소트하는 예제</h2>
+    <div id="app">
+    <ul>
+        <li v-for="item in myArray">{{ item }}</li>
+    </ul>
+    <button v-on:click="sortData(myArray)">소트</button>
+    <button v-on:click="sortData2(myArray)">소트2</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                myArray: ['one', 'two', 'three', 'four', 'five'],
+            },
+            methods: {
+                sortData:function(listdata) {
+                    listdata.sort(function(a,b) {
+                        return(a < b ? -1 : 1)
+                    });
+                },
+                sortData2:function(listdata2) {
+                    listdata2.sort(function(a,b) {
+                        return(a > b ? -1 : 1)
+                    });
+                }     
+            }
+        })
+    </script>
+    </body>
+</html>

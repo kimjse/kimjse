@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src ="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <title>v-for</title>
+    </head>
+    <body>
+    <h2>짝수만 표시한는 예제</h2>
+    <div id="app">
+    <ul>
+        <li v-for="item in myArray">{{ item }}</li>
+    </ul>
+    <hr>
+    <ul>
+        <li v-for="item in myArray2">{{ item }}</li>
+    </ul>
+    <button v-on:click="evenData()">짝수</button>
+    <button v-on:click="evenData2()">홀수</button>
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            myArray: [1,2,3,4,5,6],
+            myArray2: [1,2,3,4,5,6,7,8]
+            },
+            methods: {
+                evenData:function() {
+                    this.myArray = this.myArray.filter(function(value) {
+                        return value % 2 == 0;
+                    });
+                },
+                evenData2:function() {
+                    this.myArray2 = this.myArray2.filter(function(value) {
+                        return value % 2 == 1;
+                    });
+                }
+            }
+        
+        })
+    </script>
+    </body>
+</html>
