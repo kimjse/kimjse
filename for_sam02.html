@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src ="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <style>
+            table {
+            width: 30%;
+            text-align: left;
+            }
+            table th {
+            padding: 12px;
+            border-bottom: 2px solid darkgray;
+            }
+            table td {
+            padding: 12px;
+            }
+            table tr:nth-of-type(even) {
+            background-color: rgba(0, 0, 255, 0.1);
+            }
+        </style>
+        <title>v-for</title>
+    </head>
+    <body>
+        <div id="app">
+            <h3>관심 받고 있는 언어 랭킹</h3>
+            <table>
+            <thead>
+            <th v-for="item in header">{{ item }}</th>
+            </thead>
+                <tbody>
+                <tr v-for="line in ranking">
+                    <td v-for="item in line">{{ item }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+            
+        <script>
+            new Vue({
+                el:"#app",
+                data:{
+                    header: ["프로그램언어", 2025, 2020, 2015, 2010],
+                    ranking: [
+                    ['Go', 1, 10, 25, 100],
+                    ['Python', 3, 1, 2, 10],
+                    ['Java', 4, 9, 25, 5],
+                    ['C++', 15, 20, 11, 8],
+                    ['JS', 40, 21, 14, 7]
+                    ]
+                }
+            })
+        </script>
+    </body>
+</html>

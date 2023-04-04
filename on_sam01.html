@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src ="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <h2>한번만 사용하는 버튼</h2>
+        <div id="app">
+            <button v-bind:disabled="isClick" v-on:Click="oneClick">일회용 버튼</button>
+        </div>
+        <script>
+            function good(){
+                alert("이벤트 완성하기!!")
+            }
+            new Vue({
+                el:'#app',
+                data:{
+                    isClick : false
+                },
+                methods:{
+                    oneClick : function(){
+                        this.isClick = true
+                        good()
+                    }
+                }
+            })
+        </script>
+    </body>

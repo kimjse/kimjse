@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src ="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <title>v-if 사용법</title>
+    </head>
+    <body>
+        <div id="app">
+            <h2>true일때 표시</h2>
+            <input type="checkbox" v-model="myVisible">표시
+            <p v-if="myVisible">체크 박스가 ON</p>
+            <p v-else>체크 박스가 OFF</p>
+        </div>
+        <script>
+            new Vue({
+                el:'#app',
+                data:{
+                    myVisible : false
+                }
+            })
+        </script>
+    </body>
+</html>

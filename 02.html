@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src ="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <title>속성 복습</title>
+    </head>
+    <body>
+        <h2>입력폼 활용</h2>
+        <div id="app">
+            이름 : <input v-model.lazy="myName" placeholder="이름"> <br><br>
+            
+            좋아하는 계절은 : <br>
+            <label><input type="radio" value="spring.jpg" v-model = "fileName">봄</label>
+            <label><input type="radio" value="summer.jpg" v-model = "fileName">여름</label>
+            <label><input type="radio" value="fall.jpg" v-model = "fileName">가을</label>
+            <label><input type="radio" value="winter.jpg" v-model = "fileName">겨울</label>
+
+        
+        <p>내가 선택한 이미지는 {{ fileName }} 입니다</p>
+        <p> 파일명을 분리하면 {{afterFileName = fileName.split('.') }} 입니다.</p>
+        <p>내 이름은 {{ myName}} 이고 좋아하는 계절은 {{ afterFileName[0] }} 입니다.</p>
+        <img v-bind:src="fileName">
+        </div>
+        <script>
+            new Vue({
+                el:'#app',
+                data:{
+                    myName : '',
+
+                    fileName : ''
+                }
+            })
+        </script>
